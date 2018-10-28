@@ -14,6 +14,8 @@
 		20D11BB1218612B500A5FC6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D11BAF218612B500A5FC6E /* LaunchScreen.storyboard */; };
 		20D11BBC218612B500A5FC6E /* StarWarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BBB218612B500A5FC6E /* StarWarsTests.swift */; };
 		20D11BC7218612B600A5FC6E /* StarWarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BC6218612B600A5FC6E /* StarWarsUITests.swift */; };
+		20D11BD82186144700A5FC6E /* CharacterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BD72186144700A5FC6E /* CharacterName.swift */; };
+		20D11BDA218614D600A5FC6E /* CharacterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BD9218614D600A5FC6E /* CharacterNameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		20D11BC2218612B600A5FC6E /* StarWarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D11BC6218612B600A5FC6E /* StarWarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsUITests.swift; sourceTree = "<group>"; };
 		20D11BC8218612B600A5FC6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20D11BD72186144700A5FC6E /* CharacterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterName.swift; sourceTree = "<group>"; };
+		20D11BD9218614D600A5FC6E /* CharacterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 		20D11BD62186137600A5FC6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				20D11BD72186144700A5FC6E /* CharacterName.swift */,
+				20D11BD9218614D600A5FC6E /* CharacterNameViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D11BD82186144700A5FC6E /* CharacterName.swift in Sources */,
+				20D11BDA218614D600A5FC6E /* CharacterNameViewModel.swift in Sources */,
 				20D11BA9218612B200A5FC6E /* ViewController.swift in Sources */,
 				20D11BA7218612B200A5FC6E /* AppDelegate.swift in Sources */,
 			);
