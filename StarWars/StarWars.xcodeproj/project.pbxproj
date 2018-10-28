@@ -16,6 +16,8 @@
 		20D11BC7218612B600A5FC6E /* StarWarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BC6218612B600A5FC6E /* StarWarsUITests.swift */; };
 		20D11BD82186144700A5FC6E /* CharacterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BD72186144700A5FC6E /* CharacterName.swift */; };
 		20D11BDA218614D600A5FC6E /* CharacterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BD9218614D600A5FC6E /* CharacterNameViewModel.swift */; };
+		20D11BDC218617DB00A5FC6E /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BDB218617DB00A5FC6E /* CharacterInfo.swift */; };
+		20D11BDE2186188700A5FC6E /* CharacterInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BDD2186188700A5FC6E /* CharacterInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		20D11BC8218612B600A5FC6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20D11BD72186144700A5FC6E /* CharacterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterName.swift; sourceTree = "<group>"; };
 		20D11BD9218614D600A5FC6E /* CharacterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNameViewModel.swift; sourceTree = "<group>"; };
+		20D11BDB218617DB00A5FC6E /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
+		20D11BDD2186188700A5FC6E /* CharacterInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 			children = (
 				20D11BD72186144700A5FC6E /* CharacterName.swift */,
 				20D11BD9218614D600A5FC6E /* CharacterNameViewModel.swift */,
+				20D11BDB218617DB00A5FC6E /* CharacterInfo.swift */,
+				20D11BDD2186188700A5FC6E /* CharacterInfoViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,6 +294,8 @@
 			files = (
 				20D11BD82186144700A5FC6E /* CharacterName.swift in Sources */,
 				20D11BDA218614D600A5FC6E /* CharacterNameViewModel.swift in Sources */,
+				20D11BDE2186188700A5FC6E /* CharacterInfoViewModel.swift in Sources */,
+				20D11BDC218617DB00A5FC6E /* CharacterInfo.swift in Sources */,
 				20D11BA9218612B200A5FC6E /* ViewController.swift in Sources */,
 				20D11BA7218612B200A5FC6E /* AppDelegate.swift in Sources */,
 			);
