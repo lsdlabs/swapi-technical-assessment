@@ -19,7 +19,7 @@
 		20D11BDC218617DB00A5FC6E /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BDB218617DB00A5FC6E /* CharacterInfo.swift */; };
 		20D11BDE2186188700A5FC6E /* CharacterInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BDD2186188700A5FC6E /* CharacterInfoViewModel.swift */; };
 		20D11BE02186321200A5FC6E /* FilmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BDF2186321200A5FC6E /* FilmInfo.swift */; };
-		20D11BE22186323500A5FC6E /* FilmInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BE12186323500A5FC6E /* FilmInfoViewModel.swift */; };
+		20D11BEC2186441F00A5FC6E /* FilmInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D11BEB2186441F00A5FC6E /* FilmInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 		20D11BDB218617DB00A5FC6E /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
 		20D11BDD2186188700A5FC6E /* CharacterInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewModel.swift; sourceTree = "<group>"; };
 		20D11BDF2186321200A5FC6E /* FilmInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfo.swift; sourceTree = "<group>"; };
-		20D11BE12186323500A5FC6E /* FilmInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewModel.swift; sourceTree = "<group>"; };
+		20D11BEB2186441F00A5FC6E /* FilmInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +162,7 @@
 				20D11BDB218617DB00A5FC6E /* CharacterInfo.swift */,
 				20D11BDD2186188700A5FC6E /* CharacterInfoViewModel.swift */,
 				20D11BDF2186321200A5FC6E /* FilmInfo.swift */,
-				20D11BE12186323500A5FC6E /* FilmInfoViewModel.swift */,
+				20D11BEB2186441F00A5FC6E /* FilmInfoViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			files = (
 				20D11BD82186144700A5FC6E /* CharacterName.swift in Sources */,
 				20D11BE02186321200A5FC6E /* FilmInfo.swift in Sources */,
-				20D11BE22186323500A5FC6E /* FilmInfoViewModel.swift in Sources */,
+				20D11BEC2186441F00A5FC6E /* FilmInfoViewModel.swift in Sources */,
 				20D11BDA218614D600A5FC6E /* CharacterNameViewModel.swift in Sources */,
 				20D11BDE2186188700A5FC6E /* CharacterInfoViewModel.swift in Sources */,
 				20D11BDC218617DB00A5FC6E /* CharacterInfo.swift in Sources */,
