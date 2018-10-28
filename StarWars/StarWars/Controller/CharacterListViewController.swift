@@ -8,8 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CharacterListViewController: UIViewController {
 
+    var characterNamesAsURLs: [String] = []
+    var characterInformation: [CharacterInfoViewModel] = []
+    //var results: FilmInfoViewModel?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
