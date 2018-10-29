@@ -1,5 +1,5 @@
 //
-//  CharacterName.swift
+//  FilmData.swift
 //  StarWars
 //
 //  Created by Lauren Small on 10/28/18.
@@ -9,6 +9,8 @@
 import Foundation
 
 
-class CharacterName: Codable {
-    var name: String
+class FilmData: Codable {
+    var title: String
+    var characters: [String]
 }
+
