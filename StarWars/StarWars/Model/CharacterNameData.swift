@@ -1,5 +1,5 @@
 //
-//  FilmInfoViewModel.swift
+//  CharacterName.swift
 //  StarWars
 //
 //  Created by Lauren Small on 10/28/18.
@@ -7,9 +7,8 @@
 //
 
 import Foundation
-class FilmInfoViewModel: Codable {
-    
-    var title = ""
-    var characters: [String] = []
-    
+
+
+class CharacterNameData: Codable {
+    var name: String
 }

@@ -1,90 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dIk-9e-fgD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Star Wars Episode V Characters-->
-        <scene sceneID="42Q-no-bsd">
+        <!--Character List View Controller-->
+        <scene sceneID="Y1e-l0-4mN">
             <objects>
-                <tableViewController id="Krl-IF-i6S" customClass="CharacterListViewController" customModule="StarWars" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vcq-Ew-UW7">
+                <tableViewController id="Mri-0s-psd" customClass="CharacterListViewController" customModule="StarWars" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EaR-af-chH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CharacterCell" id="Ewn-F4-ILq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Fkx-lZ-I31" customClass="CharacterTableViewCell" customModule="StarWars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ewn-F4-ILq" id="WgE-Vx-XHK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="mVS-Yt-i45" kind="show" identifier="segueToCharacterDetails" id="LzX-gF-Ivb"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Krl-IF-i6S" id="rjK-1g-pHn"/>
-                            <outlet property="delegate" destination="Krl-IF-i6S" id="TFe-tB-f57"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Star Wars Episode V Characters" id="kxt-MC-T5k"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ag-Yt-1Z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1991.2" y="125.4872563718141"/>
-        </scene>
-        <!--Character Detail View Controller-->
-        <scene sceneID="3Jw-Z0-WSg">
-            <objects>
-                <tableViewController id="mVS-Yt-i45" customClass="CharacterDetailViewController" customModule="StarWars" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BXa-5H-Vn9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="ILf-cp-sCw">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ILf-cp-sCw" id="m6L-Fc-dKN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fkx-lZ-I31" id="vNR-NQ-vay">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="mVS-Yt-i45" id="RDd-Cj-omB"/>
-                            <outlet property="delegate" destination="mVS-Yt-i45" id="akJ-5Z-cI6"/>
+                            <outlet property="dataSource" destination="Mri-0s-psd" id="737-Sv-EaF"/>
+                            <outlet property="delegate" destination="Mri-0s-psd" id="Vmc-yZ-IoZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="w8J-xV-kLM"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JyJ-aj-DWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZF4-IG-ZNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2815.1999999999998" y="124.58770614692655"/>
+            <point key="canvasLocation" x="1069.5999999999999" y="110.19490254872565"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="2MS-dj-Yvi">
+        <scene sceneID="GgW-Km-R8Z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="giI-9y-Vgv" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dIk-9e-fgD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1ge-Lx-57e">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j8t-La-sa0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Krl-IF-i6S" kind="relationship" relationship="rootViewController" id="a9W-rL-ddW"/>
+                        <segue destination="Mri-0s-psd" kind="relationship" relationship="rootViewController" id="sd7-8b-sdg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dtQ-D0-06h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y3h-7C-r48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="125.4872563718141"/>
+            <point key="canvasLocation" x="130.40000000000001" y="110.19490254872565"/>
         </scene>
     </scenes>
 </document>
