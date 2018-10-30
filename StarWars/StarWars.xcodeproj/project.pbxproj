@@ -22,6 +22,8 @@
 		209BB10021867232003EC4A0 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0FF21867232003EC4A0 /* CharacterTableViewCell.swift */; };
 		209BB10521867761003EC4A0 /* CharacterDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */; };
 		209BB10621867761003EC4A0 /* CharacterDetailsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209BB10421867761003EC4A0 /* CharacterDetailsTableViewController.xib */; };
+		209BB1082187E04B003EC4A0 /* PlanetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB1072187E04B003EC4A0 /* PlanetData.swift */; };
+		209BB10A2187E74A003EC4A0 /* SpeciesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB1092187E74A003EC4A0 /* SpeciesData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		209BB0FF21867232003EC4A0 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CharacterDetailsTableViewController.swift; path = StarWars/CharacterDetailsTableViewController.swift; sourceTree = "<group>"; };
 		209BB10421867761003EC4A0 /* CharacterDetailsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CharacterDetailsTableViewController.xib; path = StarWars/CharacterDetailsTableViewController.xib; sourceTree = "<group>"; };
+		209BB1072187E04B003EC4A0 /* PlanetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetData.swift; sourceTree = "<group>"; };
+		209BB1092187E74A003EC4A0 /* SpeciesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +172,9 @@
 			children = (
 				209BB0F5218662C7003EC4A0 /* CharacterNameData.swift */,
 				209BB0F72186631F003EC4A0 /* CharacterData.swift */,
+				209BB1072187E04B003EC4A0 /* PlanetData.swift */,
 				209BB0F92186647F003EC4A0 /* FilmData.swift */,
+				209BB1092187E74A003EC4A0 /* SpeciesData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,16 +247,13 @@
 				TargetAttributes = {
 					209BB0BE218661E7003EC4A0 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
 					};
 					209BB0D2218661E8003EC4A0 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
 						TestTargetID = 209BB0BE218661E7003EC4A0;
 					};
 					209BB0DD218661E8003EC4A0 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
 						TestTargetID = 209BB0BE218661E7003EC4A0;
 					};
 				};
@@ -313,8 +316,10 @@
 				209BB0F82186631F003EC4A0 /* CharacterData.swift in Sources */,
 				209BB0FE2186683A003EC4A0 /* DataManager.swift in Sources */,
 				209BB0C5218661E7003EC4A0 /* ViewController.swift in Sources */,
+				209BB10A2187E74A003EC4A0 /* SpeciesData.swift in Sources */,
 				209BB0FC218664F7003EC4A0 /* CharacterListViewController.swift in Sources */,
 				209BB0C3218661E7003EC4A0 /* AppDelegate.swift in Sources */,
+				209BB1082187E04B003EC4A0 /* PlanetData.swift in Sources */,
 				209BB10521867761003EC4A0 /* CharacterDetailsTableViewController.swift in Sources */,
 				209BB10021867232003EC4A0 /* CharacterTableViewCell.swift in Sources */,
 			);
@@ -497,7 +502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurensmall.StarWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -514,7 +519,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurensmall.StarWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -533,7 +538,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurensmall.StarWarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarWars.app/StarWars";
 			};
@@ -553,7 +558,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurensmall.StarWarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarWars.app/StarWars";
 			};
@@ -572,7 +577,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurensmall.StarWarsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = StarWars;
 			};
@@ -591,7 +596,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurensmall.StarWarsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = StarWars;
 			};
