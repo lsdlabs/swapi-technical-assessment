@@ -11,7 +11,7 @@ import UIKit
 class CharacterDetailsTableViewController: UITableViewController {
     var character: CharacterData?
     
-    enum CharacterField: Int { case name, birthyear, gender, count }
+    enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
     convenience init(character: CharacterData) {
         self.init(nibName: "CharacterDetailsTableViewController", bundle: nil)
@@ -22,6 +22,22 @@ class CharacterDetailsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.title = self.character?.name
+        
+        if self.character?.homeworld == nil {
+            self.character?.fetchHomeworld {
+                DispatchQueue.main.async {
+                    self.tableView?.reloadData()
+                }
+            }
+        }
+        
+        if self.character?.species == nil {
+            self.character?.fetchSpecies {
+                DispatchQueue.main.async {
+                    self.tableView?.reloadData()
+                }
+            }
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,7 +54,7 @@ class CharacterDetailsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +65,7 @@ class CharacterDetailsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
-        
+
         let field = CharacterField(rawValue: indexPath.row) ?? .name
         switch field {
         case .name:
@@ -61,6 +77,12 @@ class CharacterDetailsTableViewController: UITableViewController {
         case .gender:
             cell.textLabel?.text = self.character?.gender
             
+        case .homeworld:
+            cell.textLabel?.text = self.character?.homeworld?.name ?? "…"
+
+        case .species:
+            cell.textLabel?.text = self.character?.species?.name ?? "…"
+            
         default: break
         }
 
@@ -68,6 +90,23 @@ class CharacterDetailsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
+//
+//        let field = CharacterField(rawValue: indexPath.row) ?? .name
+//
+//        cell.textLabel?.text = self.character?.name
+//        cell.textLabel?.text = self.character?.birthYear
+//        cell.textLabel?.text = self.character?.gender
+//
+//        // Configure the cell...
+//
+//        return cell
+//    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
