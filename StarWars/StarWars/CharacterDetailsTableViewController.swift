@@ -12,6 +12,8 @@ class CharacterDetailsTableViewController: UITableViewController {
     //var character: CharacterData?
     //var character: DataManager?
     var character: CharacterData?
+    var planetData: PlanetData?
+    var speciesData: SpeciesData?
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
@@ -28,7 +30,19 @@ class CharacterDetailsTableViewController: UITableViewController {
         //self.title = self.character?.name
         //self.title = self.character?.homeworld?.name
         //self.title = self.character?.characterDataInstance.name
-        self.title = self.character?.homeworld?.name
+        //self.title = self.character?.homeworld?.name
+        self.title = self.character?.name
+        
+        
+        
+        
+//        if self.character?.homeworld == nil {
+//            self.character?.fetchHomeworld {
+//                DispatchQueue.main.async {
+//                    self.tableView?.reloadData()
+//                }
+//            }
+//        }
         
         if self.character?.homeworld == nil {
             self.character?.fetchHomeworld {
@@ -38,6 +52,13 @@ class CharacterDetailsTableViewController: UITableViewController {
             }
         }
         
+        
+        
+        
+        
+        
+        
+        
         if self.character?.species == nil {
             self.character?.fetchSpecies {
                 DispatchQueue.main.async {
@@ -45,6 +66,16 @@ class CharacterDetailsTableViewController: UITableViewController {
                 }
             }
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -77,15 +108,18 @@ class CharacterDetailsTableViewController: UITableViewController {
         switch field {
         case .name:
             //cell.textLabel?.text = self.character?.name
-            cell.textLabel?.text = self.character?.characterDataInstance.name
+            //cell.textLabel?.text = self.character?.characterDataInstance.name
+            cell.textLabel?.text = self.character?.name
 
         case .birthyear:
             //cell.textLabel?.text = self.character?.birthYear
-            cell.textLabel?.text = self.character?.characterDataInstance.birthYear
+            //cell.textLabel?.text = self.character?.characterDataInstance.birthYear
+            cell.textLabel?.text = self.character?.birthYear
 
         case .gender:
             //cell.textLabel?.text = self.character?.gender
-            cell.textLabel?.text = self.character?.characterDataInstance.gender
+            //cell.textLabel?.text = self.character?.characterDataInstance.gender
+            cell.textLabel?.text = self.character?.gender
             
             
         case .homeworld:

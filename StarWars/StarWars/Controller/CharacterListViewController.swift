@@ -16,6 +16,7 @@ class CharacterListViewController: UITableViewController {
     var characterData: CharacterData?
     
     var homeworld: PlanetData?
+    var species: SpeciesData?
     
     
     
@@ -128,15 +129,57 @@ class CharacterListViewController: UITableViewController {
     }
     
     
+    
+    
+    
+    //var species: SpeciesData?
+    
+    func fetchSpecies(completion: @escaping () -> Void) {
+        guard let characterSpeciesURL = characterData?.speciesURL[0] else {
+            return
+        }
+        guard let url = URL(string: characterSpeciesURL) else {
+            completion()
+            return
+        }
+        let speciesTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            do {
+                if let speciesData = data {
+                    let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
+                    print(speciesInfo.name)
+                    self.species = speciesInfo
+                }
+            } catch {
+                print(error)
+            }
+            completion()
+        }
+        speciesTask.resume()
+        
+    }
+    
+    
 
     
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return DataManager.instance.characterArray.count
+//    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.instance.characterArray.count
+        return characterArray.count
     }
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier, for: indexPath) as! CharacterTableViewCell
+//        cell.character = DataManager.instance.characterArray[indexPath.row]
+//        return cell
+//    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier, for: indexPath) as! CharacterTableViewCell
-        cell.character = DataManager.instance.characterArray[indexPath.row]
+        cell.character = characterArray[indexPath.row]
         return cell
     }
     
@@ -180,6 +223,13 @@ class CharacterListViewController: UITableViewController {
 //        
 //        tableView.deselectRow(at: indexPath, animated: true)
 //    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                let controller = CharacterDetailsTableViewController(character: characterArray[indexPath.row])
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
     
 }
 
