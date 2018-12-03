@@ -10,6 +10,9 @@ import UIKit
 
 class CharacterDetailsTableViewController: UITableViewController {
     var character: CharacterData?
+    var homeworld: PlanetData?
+    var species: SpeciesData?
+    
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
@@ -24,7 +27,7 @@ class CharacterDetailsTableViewController: UITableViewController {
         self.title = self.character?.name
         
         if self.character?.homeworld == nil {
-            self.fetchHomeworld() {
+            self.character?.fetchHomeworld {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
