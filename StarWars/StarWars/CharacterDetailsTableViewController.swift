@@ -10,13 +10,14 @@ import UIKit
 
 class CharacterDetailsTableViewController: UITableViewController {
     //var character: CharacterData?
-    var character: DataManager?
+    //var character: DataManager?
+    var character: CharacterData?
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
     //convenience init(character: CharacterData) {
     //convenience init(character: DataManager) {
-    convenience init(character: DataManager) {
+    convenience init(character: CharacterData) {
         self.init(nibName: "CharacterDetailsTableViewController", bundle: nil)
         self.character = character
     }
@@ -26,7 +27,8 @@ class CharacterDetailsTableViewController: UITableViewController {
 
         //self.title = self.character?.name
         //self.title = self.character?.homeworld?.name
-        self.title = self.character?.characterDataInstance.name
+        //self.title = self.character?.characterDataInstance.name
+        self.title = self.character?.homeworld?.name
         
         if self.character?.homeworld == nil {
             self.character?.fetchHomeworld {

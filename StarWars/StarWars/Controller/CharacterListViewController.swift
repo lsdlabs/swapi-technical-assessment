@@ -13,6 +13,23 @@ class CharacterListViewController: UITableViewController {
     
     let filmURL = "https://swapi.co/api/films/2/"
     var characterArray = [CharacterData]()
+    var characterData: CharacterData?
+    
+    var homeworld: PlanetData?
+    
+    
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.title = "Characters in The Empire Strikes Back"
+//        self.tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
+//        // Do any additional setup after loading the view.
+//        DataManager.instance.fetchCharacters {
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
     
     
     override func viewDidLoad() {
@@ -20,7 +37,7 @@ class CharacterListViewController: UITableViewController {
         self.title = "Characters in The Empire Strikes Back"
         self.tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
         // Do any additional setup after loading the view.
-        DataManager.instance.fetchCharacters {
+        fetchCharacters() {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -68,6 +85,47 @@ class CharacterListViewController: UITableViewController {
     }
     
     
+    /*
+    func parse(data: Data) -> CharacterData? {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(CharacterData.self, from: data)
+            
+            return result
+        } catch {
+            print("JSON Error: \(error)")
+            return nil
+        }
+    }
+    */
+    
+    
+    //var homeworld: PlanetData?
+    
+    func fetchHomeworld(completion: @escaping () -> Void) {
+        
+        guard let characterHomeworldURL = characterData?.homeworldURL else {
+            return
+        }
+        guard let url = URL(string: characterHomeworldURL) else {
+            completion()
+            return
+        }
+        let planetTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            do {
+                if let planetData = data {
+                    let planetInfo = try JSONDecoder().decode(PlanetData.self, from: planetData)
+                    print(planetInfo.name)
+                    self.homeworld = planetInfo
+                }
+            } catch {
+                print(error)
+            }
+            completion()
+        }
+        planetTask.resume()
+        
+    }
     
     
 
