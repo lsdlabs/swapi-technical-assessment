@@ -12,7 +12,7 @@ class CharacterListViewController: UITableViewController {
 
     
     let filmURL = "https://swapi.co/api/films/2/"
-    
+    var characterArray = [CharacterData]()
     
     
     override func viewDidLoad() {
@@ -26,6 +26,50 @@ class CharacterListViewController: UITableViewController {
             }
         }
     }
+    
+    
+    func fetchCharacters(completion: @escaping () -> Void ) {
+        
+        let task = URLSession.shared.dataTask(with: URL(string: self.filmURL)!) { (data, response, error) in
+            if let actualData = data {
+                do {
+                    let filmInfo = try JSONDecoder().decode(FilmInfo.self, from: actualData)
+                    let queue = DispatchQueue(label: "characterQueue")
+                    let parseQueue = DispatchQueue(label: "serializationQueue")
+                    for url in filmInfo.characters {
+                        queue.suspend()
+                        let characterTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                            do {
+                                if let characterData = data {
+                                    let characterInfo = try JSONDecoder().decode(CharacterData.self, from: characterData)
+                                    print(characterInfo.name)
+                                    parseQueue.async {
+                                        
+                                        
+                                        self.characterArray.append(characterInfo)
+                                        queue.resume()
+                                    }
+                                }
+                            } catch {
+                                print(error)
+                            }
+                        }
+                        characterTask.resume()
+                    }
+                    queue.async {
+                        completion()
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
+    
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,12 +113,16 @@ class CharacterListViewController: UITableViewController {
 //        self.navigationController?.pushViewController(controller, animated: true)
 //    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
 }
-
 
 
