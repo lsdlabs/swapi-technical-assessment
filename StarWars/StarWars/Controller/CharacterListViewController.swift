@@ -17,6 +17,7 @@ class CharacterListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Characters in The Empire Strikes Back"
         self.tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
         // Do any additional setup after loading the view.
         DataManager.instance.fetchCharacters {
@@ -68,9 +69,9 @@ class CharacterListViewController: UITableViewController {
 //        self.navigationController?.pushViewController(controller, animated: true)
 //    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
     
 }
