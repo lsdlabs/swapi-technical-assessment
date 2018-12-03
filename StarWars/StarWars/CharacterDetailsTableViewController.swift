@@ -12,8 +12,10 @@ class CharacterDetailsTableViewController: UITableViewController {
     //var character: CharacterData?
     //var character: DataManager?
     var character: CharacterData?
-    var planetData: PlanetData?
-    var speciesData: SpeciesData?
+    //var planetData: PlanetData?
+    //var speciesData: SpeciesData?
+    var homeworld: PlanetData?
+    var species: SpeciesData?
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
@@ -45,35 +47,29 @@ class CharacterDetailsTableViewController: UITableViewController {
 //        }
         
         if self.character?.homeworld == nil {
-            self.character?.fetchHomeworld {
+            fetchHomeworld() {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
             }
         }
         
-        
-        
-        
-        
-        
-        
+    
+//        if self.character?.species == nil {
+//            self.character?.fetchSpecies {
+//                DispatchQueue.main.async {
+//                    self.tableView?.reloadData()
+//                }
+//            }
+//        }
         
         if self.character?.species == nil {
-            self.character?.fetchSpecies {
+            fetchSpecies() {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -82,12 +78,72 @@ class CharacterDetailsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
+    func fetchHomeworld(completion: @escaping () -> Void) {
+        
+        guard let characterHomeworldURL = character?.homeworldURL else {
+            return
+        }
+        guard let url = URL(string: characterHomeworldURL) else {
+            completion()
+            return
+        }
+        let planetTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            do {
+                if let planetData = data {
+                    let planetInfo = try JSONDecoder().decode(PlanetData.self, from: planetData)
+                    print(planetInfo.name)
+                    self.homeworld = planetInfo
+                }
+            } catch {
+                print(error)
+            }
+            completion()
+        }
+        planetTask.resume()
+        
+    }
+    
+    
+    func fetchSpecies(completion: @escaping () -> Void) {
+        guard let characterSpeciesURL = character?.speciesURL[0] else {
+            return
+        }
+        guard let url = URL(string: characterSpeciesURL) else {
+            completion()
+            return
+        }
+        let speciesTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            do {
+                if let speciesData = data {
+                    let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
+                    print(speciesInfo.name)
+                    self.species = speciesInfo
+                }
+            } catch {
+                print(error)
+            }
+            completion()
+        }
+        speciesTask.resume()
+        
+    }
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

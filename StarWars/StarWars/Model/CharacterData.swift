@@ -25,8 +25,8 @@ class CharacterData: Codable {
     }
     
     
-    
-    
+    var homeworld: PlanetData?
+    var species: SpeciesData?
     
     
     /*

@@ -35,15 +35,28 @@ class CharacterListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Characters in The Empire Strikes Back"
         self.tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
         // Do any additional setup after loading the view.
-        fetchCharacters() {
+        fetchCharacters {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
+
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.title = "Characters in The Empire Strikes Back"
+//        self.tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
+//        // Do any additional setup after loading the view.
+//        fetchCharacters() /*{
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//                //print("🚦 Character Array: \(self.characterArray)")
+//            }
+//        }*/
+//    }
     
     
     func fetchCharacters(completion: @escaping () -> Void ) {
@@ -86,6 +99,52 @@ class CharacterListViewController: UITableViewController {
     }
     
     
+//    func fetchCharacters(/*completion: @escaping () -> Void*/ ) {
+//
+//        let task = URLSession.shared.dataTask(with: URL(string: self.filmURL)!) { (data, response, error) in
+//            if let actualData = data {
+//                do {
+//                    let filmInfo = try JSONDecoder().decode(FilmInfo.self, from: actualData)
+//                    let queue = DispatchQueue(label: "characterQueue")
+//                    let parseQueue = DispatchQueue(label: "serializationQueue")
+//                    print("♥️ Film info: \(filmInfo)")
+//                    for url in filmInfo.characters {
+//                        print("🚢 URL: \(url)")
+//                        queue.suspend()
+//                        let characterTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//                            do {
+//                                if let characterData = data {
+//                                    let characterInfo = try JSONDecoder().decode(CharacterData.self, from: characterData)
+////                                    if characterInfo.name != nil {
+////                                        print("🔴 \(characterInfo.name)")
+////                                    }
+//                                    parseQueue.async {
+//
+//
+//                                        self.characterArray.append(characterInfo)
+//                                        print("🔔 Character: \(characterInfo.name)")
+//                                        queue.resume()
+//                                    }
+//                                }
+//                            } catch {
+//                                print(error)
+//                            }
+//                        }
+//                        characterTask.resume()
+//                    }
+//                    queue.async {
+//                        //completion()
+//                        print("No completion handler")
+//                    }
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//        }
+//        task.resume()
+//    }
+//
+    
     /*
     func parse(data: Data) -> CharacterData? {
         do {
@@ -103,60 +162,60 @@ class CharacterListViewController: UITableViewController {
     
     //var homeworld: PlanetData?
     
-    func fetchHomeworld(completion: @escaping () -> Void) {
-        
-        guard let characterHomeworldURL = characterData?.homeworldURL else {
-            return
-        }
-        guard let url = URL(string: characterHomeworldURL) else {
-            completion()
-            return
-        }
-        let planetTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            do {
-                if let planetData = data {
-                    let planetInfo = try JSONDecoder().decode(PlanetData.self, from: planetData)
-                    print(planetInfo.name)
-                    self.homeworld = planetInfo
-                }
-            } catch {
-                print(error)
-            }
-            completion()
-        }
-        planetTask.resume()
-        
-    }
-    
+//    func fetchHomeworld(completion: @escaping () -> Void) {
+//        
+//        guard let characterHomeworldURL = characterData?.homeworldURL else {
+//            return
+//        }
+//        guard let url = URL(string: characterHomeworldURL) else {
+//            completion()
+//            return
+//        }
+//        let planetTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            do {
+//                if let planetData = data {
+//                    let planetInfo = try JSONDecoder().decode(PlanetData.self, from: planetData)
+//                    print(planetInfo.name)
+//                    self.homeworld = planetInfo
+//                }
+//            } catch {
+//                print(error)
+//            }
+//            completion()
+//        }
+//        planetTask.resume()
+//        
+//    }
+//    
     
     
     
     
     //var species: SpeciesData?
     
-    func fetchSpecies(completion: @escaping () -> Void) {
-        guard let characterSpeciesURL = characterData?.speciesURL[0] else {
-            return
-        }
-        guard let url = URL(string: characterSpeciesURL) else {
-            completion()
-            return
-        }
-        let speciesTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            do {
-                if let speciesData = data {
-                    let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
-                    print(speciesInfo.name)
-                    self.species = speciesInfo
-                }
-            } catch {
-                print(error)
-            }
-            completion()
-        }
-        speciesTask.resume()
-        
-    }
+//    func fetchSpecies(completion: @escaping () -> Void) {
+//        guard let characterSpeciesURL = characterData?.speciesURL[0] else {
+//            return
+//        }
+//        guard let url = URL(string: characterSpeciesURL) else {
+//            completion()
+//            return
+//        }
+//        let speciesTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            do {
+//                if let speciesData = data {
+//                    let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
+//                    print(speciesInfo.name)
+//                    self.species = speciesInfo
+//                }
+//            } catch {
+//                print(error)
+//            }
+//            completion()
+//        }
+//        speciesTask.resume()
+//        
+//    }
     
     
 
