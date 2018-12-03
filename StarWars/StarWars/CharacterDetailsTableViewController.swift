@@ -24,7 +24,7 @@ class CharacterDetailsTableViewController: UITableViewController {
         self.title = self.character?.name
         
         if self.character?.homeworld == nil {
-            self.character?.fetchHomeworld {
+            self.fetchHomeworld() {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
@@ -32,12 +32,16 @@ class CharacterDetailsTableViewController: UITableViewController {
         }
         
         if self.character?.species == nil {
-            self.character?.fetchSpecies {
+            fetchSpecies() {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
             }
         }
+        
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -50,6 +54,71 @@ class CharacterDetailsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
+    
+    
+    
+    
+    func fetchHomeworld(completion: @escaping () -> Void) {
+        guard let url = URL(string: character!.homeworldURL) else {
+            completion()
+            return
+        }
+        let planetTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            do {
+                if let planetData = data {
+                    let planetInfo = try JSONDecoder().decode(PlanetData.self, from: planetData)
+                    print(planetInfo.name)
+                    //self.homeworld = planetInfo
+                    self.character!.homeworld = planetInfo
+                }
+            } catch {
+                print(error)
+            }
+            completion()
+        }
+        planetTask.resume()
+        
+    }
+    
+    
+    
+    
+        func fetchSpecies(completion: @escaping () -> Void) {
+            guard let url = URL(string: (character?.speciesURL[0])!) else {
+                completion()
+                return
+            }
+            let speciesTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                do {
+                    if let speciesData = data {
+                        let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
+                        print(speciesInfo.name)
+                        //self.species = speciesInfo
+                        self.character!.species = speciesInfo
+                    }
+                } catch {
+                    print(error)
+                }
+                completion()
+            }
+            speciesTask.resume()
+    
+        }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
