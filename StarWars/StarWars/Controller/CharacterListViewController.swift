@@ -69,9 +69,12 @@ class CharacterListViewController: UITableViewController {
 //        self.navigationController?.pushViewController(controller, animated: true)
 //    }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
-//        self.navigationController?.pushViewController(controller, animated: true)
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
 }
+
+
+
