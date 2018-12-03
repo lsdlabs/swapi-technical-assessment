@@ -10,7 +10,7 @@ import Foundation
 
 
 class FilmData: Codable {
-    var title: String
-    var characters: [String]
+    let title: String
+    let characters: [String]
 }
 

@@ -11,5 +11,5 @@ import Foundation
 
 
 struct FilmInfo: Codable {
-    var characters: [URL]
+    let characters: [URL]
 }

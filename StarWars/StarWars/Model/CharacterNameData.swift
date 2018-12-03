@@ -10,5 +10,5 @@ import Foundation
 
 
 class CharacterNameData: Codable {
-    var name: String
+    let name: String
 }
