@@ -143,6 +143,6 @@ class DataManager {
 
 
 
-struct FilmInfo: Codable {
-    var characters: [URL]
-}
+//struct FilmInfo: Codable {
+//    var characters: [URL]
+//}

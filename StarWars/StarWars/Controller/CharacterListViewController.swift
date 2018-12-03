@@ -37,8 +37,40 @@ class CharacterListViewController: UITableViewController {
         return cell
     }
     
+    
+    
+////////////////ORIGINAL///////////////////////////////////////////////////////////////////
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+//////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CharacterDetailsTableViewController(character: DataManager.characterDataInstance.characterArray[indexPath.row])
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+    
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CharacterDetailsTableViewController(character: DataManager.characterArray[indexPath.row])
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CharacterDetailsTableViewController(character: DataManager[indexPath.row])
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let controller = CharacterDetailsTableViewController(character: DataManager)
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = CharacterDetailsTableViewController(character: DataManager.instance.characterArray[indexPath.row])
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
 }

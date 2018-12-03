@@ -9,11 +9,14 @@
 import UIKit
 
 class CharacterDetailsTableViewController: UITableViewController {
-    var character: CharacterData?
+    //var character: CharacterData?
+    var character: DataManager?
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
-    convenience init(character: CharacterData) {
+    //convenience init(character: CharacterData) {
+    //convenience init(character: DataManager) {
+    convenience init(character: DataManager) {
         self.init(nibName: "CharacterDetailsTableViewController", bundle: nil)
         self.character = character
     }
@@ -21,7 +24,9 @@ class CharacterDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = self.character?.name
+        //self.title = self.character?.name
+        //self.title = self.character?.homeworld?.name
+        self.title = self.character?.characterDataInstance.name
         
         if self.character?.homeworld == nil {
             self.character?.fetchHomeworld {
@@ -69,13 +74,17 @@ class CharacterDetailsTableViewController: UITableViewController {
         let field = CharacterField(rawValue: indexPath.row) ?? .name
         switch field {
         case .name:
-            cell.textLabel?.text = self.character?.name
+            //cell.textLabel?.text = self.character?.name
+            cell.textLabel?.text = self.character?.characterDataInstance.name
 
         case .birthyear:
-            cell.textLabel?.text = self.character?.birthYear
+            //cell.textLabel?.text = self.character?.birthYear
+            cell.textLabel?.text = self.character?.characterDataInstance.birthYear
 
         case .gender:
-            cell.textLabel?.text = self.character?.gender
+            //cell.textLabel?.text = self.character?.gender
+            cell.textLabel?.text = self.character?.characterDataInstance.gender
+            
             
         case .homeworld:
             cell.textLabel?.text = self.character?.homeworld?.name ?? "…"
