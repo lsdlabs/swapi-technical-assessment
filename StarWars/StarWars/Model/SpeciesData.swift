@@ -9,7 +9,7 @@
 import Foundation
 
 
-class SpeciesData: Codable {
+struct SpeciesData: Codable {
     var name: String = ""
     var classification: String = ""
     var designation: String = ""
