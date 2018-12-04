@@ -10,8 +10,8 @@ import UIKit
 
 class CharacterDetailsTableViewController: UITableViewController {
     var character: CharacterData?
-    var homeworld: PlanetData?
-    var species: SpeciesData?
+//    var homeworld: PlanetData?
+//    var species: SpeciesData?
     
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
@@ -27,7 +27,7 @@ class CharacterDetailsTableViewController: UITableViewController {
         self.title = self.character?.name
         
         if self.character?.homeworld == nil {
-            self.character?.fetchHomeworld {
+            self.fetchHomeworld {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
@@ -35,16 +35,12 @@ class CharacterDetailsTableViewController: UITableViewController {
         }
         
         if self.character?.species == nil {
-            fetchSpecies() {
+            fetchSpecies {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
                 }
             }
         }
-        
-        
-        
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -59,11 +55,6 @@ class CharacterDetailsTableViewController: UITableViewController {
 
     
     
-    
-    
-    
-    
-    
     func fetchHomeworld(completion: @escaping () -> Void) {
         guard let url = URL(string: character!.homeworldURL) else {
             completion()
@@ -74,7 +65,6 @@ class CharacterDetailsTableViewController: UITableViewController {
                 if let planetData = data {
                     let planetInfo = try JSONDecoder().decode(PlanetData.self, from: planetData)
                     print(planetInfo.name)
-                    //self.homeworld = planetInfo
                     self.character!.homeworld = planetInfo
                 }
             } catch {
@@ -86,34 +76,30 @@ class CharacterDetailsTableViewController: UITableViewController {
         
     }
     
-    
-    
-    
-        func fetchSpecies(completion: @escaping () -> Void) {
-            guard let url = URL(string: (character?.speciesURL[0])!) else {
-                completion()
-                return
-            }
-            let speciesTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                do {
-                    if let speciesData = data {
-                        let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
-                        print(speciesInfo.name)
-                        //self.species = speciesInfo
-                        self.character!.species = speciesInfo
-                    }
-                } catch {
-                    print(error)
-                }
-                completion()
-            }
-            speciesTask.resume()
-    
-        }
+
 
     
     
-    
+    func fetchSpecies(completion: @escaping () -> Void) {
+        guard let url = URL(string: character!.speciesURL[0]) else {
+            completion()
+            return
+        }
+        let speciesTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            do {
+                if let speciesData = data {
+                    let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
+                    print(speciesInfo.name)
+                    self.character!.species = speciesInfo
+                }
+            } catch {
+                print(error)
+            }
+            completion()
+        }
+        speciesTask.resume()
+        
+    }
     
     
     
