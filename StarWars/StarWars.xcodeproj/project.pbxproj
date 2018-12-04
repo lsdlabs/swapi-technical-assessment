@@ -14,9 +14,7 @@
 		209BB0CD218661E8003EC4A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209BB0CB218661E8003EC4A0 /* LaunchScreen.storyboard */; };
 		209BB0D8218661E8003EC4A0 /* StarWarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0D7218661E8003EC4A0 /* StarWarsTests.swift */; };
 		209BB0E3218661E8003EC4A0 /* StarWarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0E2218661E8003EC4A0 /* StarWarsUITests.swift */; };
-		209BB0F6218662C7003EC4A0 /* CharacterNameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0F5218662C7003EC4A0 /* CharacterNameData.swift */; };
 		209BB0F82186631F003EC4A0 /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0F72186631F003EC4A0 /* CharacterData.swift */; };
-		209BB0FA2186647F003EC4A0 /* FilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0F92186647F003EC4A0 /* FilmData.swift */; };
 		209BB0FC218664F7003EC4A0 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0FB218664F7003EC4A0 /* CharacterListViewController.swift */; };
 		209BB10021867232003EC4A0 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB0FF21867232003EC4A0 /* CharacterTableViewCell.swift */; };
 		209BB10521867761003EC4A0 /* CharacterDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */; };
@@ -57,9 +55,7 @@
 		209BB0DE218661E8003EC4A0 /* StarWarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		209BB0E2218661E8003EC4A0 /* StarWarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsUITests.swift; sourceTree = "<group>"; };
 		209BB0E4218661E8003EC4A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		209BB0F5218662C7003EC4A0 /* CharacterNameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNameData.swift; sourceTree = "<group>"; };
 		209BB0F72186631F003EC4A0 /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
-		209BB0F92186647F003EC4A0 /* FilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmData.swift; sourceTree = "<group>"; };
 		209BB0FB218664F7003EC4A0 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		209BB0FF21867232003EC4A0 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CharacterDetailsTableViewController.swift; path = StarWars/CharacterDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -169,10 +165,8 @@
 		209BB0F42186621F003EC4A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				209BB0F5218662C7003EC4A0 /* CharacterNameData.swift */,
 				209BB0F72186631F003EC4A0 /* CharacterData.swift */,
 				209BB1072187E04B003EC4A0 /* PlanetData.swift */,
-				209BB0F92186647F003EC4A0 /* FilmData.swift */,
 				209BB1092187E74A003EC4A0 /* SpeciesData.swift */,
 				20AFF5A721B5C4FE000A232E /* FilmInfo.swift */,
 			);
@@ -311,8 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				209BB0FA2186647F003EC4A0 /* FilmData.swift in Sources */,
-				209BB0F6218662C7003EC4A0 /* CharacterNameData.swift in Sources */,
 				209BB0F82186631F003EC4A0 /* CharacterData.swift in Sources */,
 				209BB0C5218661E7003EC4A0 /* ViewController.swift in Sources */,
 				209BB10A2187E74A003EC4A0 /* SpeciesData.swift in Sources */,

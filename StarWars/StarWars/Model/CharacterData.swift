@@ -8,13 +8,13 @@
 
 import Foundation
 
-
-class CharacterData: Codable {
-    let name: String = ""
-    let birthYear: String = ""
-    let gender: String = ""
-    let homeworldURL: String = ""
-    let speciesURL: [String] = []
+///class set default values,
+struct CharacterData: Codable {
+    var name: String = ""
+    var birthYear: String = ""
+    var gender: String = ""
+    var homeworldURL: String = ""
+    var speciesURL: [String] = []
     
     enum CodingKeys: String, CodingKey {
         case name

@@ -10,17 +10,17 @@ import Foundation
 
 
 class PlanetData: Codable {
-    let name: String = ""
-    let rotation_period: String = ""
-    let orbital_period: String = ""
-    let diameter = ""
-    let climate = ""
-    let gravity = ""
-    let terrain = ""
-    let surface_water = ""
-    let population = ""
-    let residents: [URL] = []
-    let films: [String] = []
+    var name: String = ""
+    var rotation_period: String = ""
+    var orbital_period: String = ""
+    var diameter = ""
+    var climate = ""
+    var gravity = ""
+    var terrain = ""
+    var surface_water = ""
+    var population = ""
+    var residents: [URL] = []
+    var films: [String] = []
     
 }
 
