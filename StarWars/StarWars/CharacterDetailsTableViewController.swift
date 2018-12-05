@@ -10,6 +10,7 @@ import UIKit
 
 class CharacterDetailsTableViewController: UITableViewController {
     var character: CharacterData?
+ //   var filmArray = [FilmData]()
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
@@ -23,7 +24,7 @@ class CharacterDetailsTableViewController: UITableViewController {
 
         self.title = self.character?.name
         
-        if self.character?.homeworld == nil {
+        if self.character?.homeworldInformation == nil {
             self.fetchHomeworld {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
@@ -31,7 +32,7 @@ class CharacterDetailsTableViewController: UITableViewController {
             }
         }
         
-        if self.character?.species == nil {
+        if self.character?.speciesInformation == nil {
             self.fetchSpecies {
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
@@ -48,7 +49,7 @@ class CharacterDetailsTableViewController: UITableViewController {
     
     
     func fetchHomeworld(completion: @escaping () -> Void) {
-        guard let url = URL(string: character!.homeworldURL) else {
+        guard let url = URL(string: character!.homeworld) else {
             completion()
             return
         }
@@ -57,7 +58,7 @@ class CharacterDetailsTableViewController: UITableViewController {
                 if let planetData = data {
                     let planetInfo = try JSONDecoder().decode(PlanetData.self, from: planetData)
                     print(planetInfo.name)
-                    self.character!.homeworld = planetInfo
+                    self.character!.homeworldInformation = planetInfo
                 }
             } catch {
                 print(error)
@@ -69,7 +70,7 @@ class CharacterDetailsTableViewController: UITableViewController {
     }
     
     func fetchSpecies(completion: @escaping () -> Void) {
-        guard let url = URL(string: character!.speciesURL[0]) else {
+        guard let url = URL(string: character!.species[0]) else {
             completion()
             return
         }
@@ -78,7 +79,7 @@ class CharacterDetailsTableViewController: UITableViewController {
                 if let speciesData = data {
                     let speciesInfo = try JSONDecoder().decode(SpeciesData.self, from: speciesData)
                     print(speciesInfo.name)
-                    self.character!.species = speciesInfo
+                    self.character!.speciesInformation = speciesInfo
                 }
             } catch {
                 print(error)
@@ -88,11 +89,6 @@ class CharacterDetailsTableViewController: UITableViewController {
         speciesTask.resume()
         
     }
-    
-    
-    
-    
-    
     
     
     
@@ -118,16 +114,16 @@ class CharacterDetailsTableViewController: UITableViewController {
             cell.textLabel?.text = self.character?.name
 
         case .birthyear:
-            cell.textLabel?.text = self.character?.birthYear
+            cell.textLabel?.text = self.character?.birth_year
 
         case .gender:
             cell.textLabel?.text = self.character?.gender
             
         case .homeworld:
-            cell.textLabel?.text = self.character?.homeworld?.name ?? "…"
+            cell.textLabel?.text = self.character?.homeworldInformation?.name ?? "…"
 
         case .species:
-            cell.textLabel?.text = self.character?.species?.name ?? "…"
+            cell.textLabel?.text = self.character?.speciesInformation?.name ?? "…"
             
         default: break
         }
