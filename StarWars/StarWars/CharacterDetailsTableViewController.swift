@@ -111,19 +111,36 @@ class CharacterDetailsTableViewController: UITableViewController {
         let field = CharacterField(rawValue: indexPath.row) ?? .name
         switch field {
         case .name:
-            cell.textLabel?.text = self.character?.name
+            cell.textLabel?.text = "Name: \(self.character?.name ?? "No Name")"
 
         case .birthyear:
-            cell.textLabel?.text = self.character?.birth_year
+            cell.textLabel?.text = "Birthyear: \(self.character?.birth_year ?? "Birthdate Unknown")"
 
         case .gender:
-            cell.textLabel?.text = self.character?.gender
+            cell.textLabel?.text = "Gender: \(self.character?.gender ?? "Gender Unknown")"
             
-        case .homeworld:
-            cell.textLabel?.text = self.character?.homeworldInformation?.name ?? "…"
+//        case .homeworld:
+//            cell.textLabel?.text = "Homeworld: \(self.character?.homeworldInformation?.name ?? "Homeworld Unknown")"
+            
+//         case .homeworld:
+//            cell.textLabel?.text = self.character?.homeworldInformation?.name ?? "…"
 
+        case .homeworld:
+            if let homeworld = self.character?.homeworldInformation?.name {
+                cell.textLabel?.text = "Homeworld: \(homeworld)"
+            } else {
+                cell.textLabel?.text = "Homeworld: Unknown"
+            }
+            
+//        case .species:
+//            cell.textLabel?.text = self.character?.speciesInformation?.name ?? "…"
+            
         case .species:
-            cell.textLabel?.text = self.character?.speciesInformation?.name ?? "…"
+            if let species = self.character?.speciesInformation?.name {
+                cell.textLabel?.text = "Species: \(species)"
+            } else {
+                cell.textLabel?.text = "Species: Unknown"
+            }
             
         default: break
         }
@@ -132,4 +149,34 @@ class CharacterDetailsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
+//
+//        let field = CharacterField(rawValue: indexPath.row) ?? .name
+//        switch field {
+//        case .name:
+//            cell.textLabel?.text = self.character?.name
+//
+//        case .birthyear:
+//            cell.textLabel?.text = self.character?.birth_year
+//
+//        case .gender:
+//            cell.textLabel?.text = self.character?.gender
+//
+//        case .homeworld:
+//            cell.textLabel?.text = self.character?.homeworldInformation?.name ?? "…"
+//
+//        case .species:
+//            cell.textLabel?.text = self.character?.speciesInformation?.name ?? "…"
+//
+//        default: break
+//        }
+//
+//        // Configure the cell...
+//
+//        return cell
+//    }
+    
 }
