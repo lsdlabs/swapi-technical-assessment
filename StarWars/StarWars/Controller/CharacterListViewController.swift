@@ -17,6 +17,7 @@ class CharacterListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Star Wars Ep. V Characters"
         self.tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
         // Do any additional setup after loading the view.
         fetchCharacters {
