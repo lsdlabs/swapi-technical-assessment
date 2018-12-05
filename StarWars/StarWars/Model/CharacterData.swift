@@ -13,6 +13,7 @@ struct CharacterData: Codable {
     let birth_year: String
     let gender: String?
     let homeworld: String
+    let mass: String
     let species: [String]
     let films: [String]
     

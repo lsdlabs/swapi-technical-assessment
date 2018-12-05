@@ -12,7 +12,7 @@ class CharacterDetailsTableViewController: UITableViewController {
     var character: CharacterData?
  //   var starshipArray = [StarshipData]()
     
-    enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
+    enum CharacterField: Int { case name, birthyear, gender, homeworld, mass, species, count }
     
     convenience init(character: CharacterData) {
         self.init(nibName: "CharacterDetailsTableViewController", bundle: nil)
@@ -114,6 +114,13 @@ class CharacterDetailsTableViewController: UITableViewController {
             
 //      case .homeworld:
 //          cell.textLabel?.text = "Homeworld: \(self.character?.homeworldInformation?.name ?? "Homeworld: Unknown")"
+            
+        case .mass:
+            if let mass = self.character?.mass {
+                cell.textLabel?.text = ("Mass: \(mass)kg")
+            } else {
+                cell.textLabel?.text = "Mass: Unknown"
+            }
             
         case .homeworld:
             if let homeworld = self.character?.homeworldInformation?.name {
