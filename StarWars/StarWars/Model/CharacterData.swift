@@ -8,7 +8,6 @@
 
 import Foundation
 
-///class set default values,
 struct CharacterData: Codable {
     let name: String
     let birth_year: String
@@ -17,13 +16,8 @@ struct CharacterData: Codable {
     let species: [String]
     let films: [String]
     
-   
-    
-    
     var homeworldInformation: PlanetData?
     var speciesInformation: SpeciesData?
-    
-    
 }
 
 

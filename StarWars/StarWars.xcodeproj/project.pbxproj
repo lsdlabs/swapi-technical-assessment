@@ -58,8 +58,8 @@
 		209BB0F72186631F003EC4A0 /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
 		209BB0FB218664F7003EC4A0 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		209BB0FF21867232003EC4A0 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
-		209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CharacterDetailsTableViewController.swift; path = StarWars/CharacterDetailsTableViewController.swift; sourceTree = "<group>"; };
-		209BB10421867761003EC4A0 /* CharacterDetailsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CharacterDetailsTableViewController.xib; path = StarWars/CharacterDetailsTableViewController.xib; sourceTree = "<group>"; };
+		209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewController.swift; sourceTree = "<group>"; };
+		209BB10421867761003EC4A0 /* CharacterDetailsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsTableViewController.xib; sourceTree = "<group>"; };
 		209BB1072187E04B003EC4A0 /* PlanetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetData.swift; sourceTree = "<group>"; };
 		209BB1092187E74A003EC4A0 /* SpeciesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesData.swift; sourceTree = "<group>"; };
 		20AFF5A721B5C4FE000A232E /* FilmInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfo.swift; sourceTree = "<group>"; };
@@ -93,8 +93,6 @@
 		209BB0B6218661E7003EC4A0 = {
 			isa = PBXGroup;
 			children = (
-				209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */,
-				209BB10421867761003EC4A0 /* CharacterDetailsTableViewController.xib */,
 				209BB0C1218661E7003EC4A0 /* StarWars */,
 				209BB0D6218661E8003EC4A0 /* StarWarsTests */,
 				209BB0E1218661E8003EC4A0 /* StarWarsUITests */,
@@ -148,6 +146,7 @@
 		209BB0F0218661F0003EC4A0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				209BB10321867761003EC4A0 /* CharacterDetailsTableViewController.swift */,
 				209BB0FB218664F7003EC4A0 /* CharacterListViewController.swift */,
 			);
 			path = Controller;
@@ -156,6 +155,7 @@
 		209BB0F321866216003EC4A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				209BB10421867761003EC4A0 /* CharacterDetailsTableViewController.xib */,
 				209BB0C6218661E7003EC4A0 /* Main.storyboard */,
 				209BB0FF21867232003EC4A0 /* CharacterTableViewCell.swift */,
 			);

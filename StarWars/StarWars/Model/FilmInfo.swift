@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct FilmInfo: Codable {
     let characters: [URL]
 }

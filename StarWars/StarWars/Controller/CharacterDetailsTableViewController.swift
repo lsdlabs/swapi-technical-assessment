@@ -43,9 +43,7 @@ class CharacterDetailsTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
     
     ///fetchHomeworld() fetches the name of the character's homeworld
     func fetchHomeworld(completion: @escaping () -> Void) {
@@ -69,8 +67,6 @@ class CharacterDetailsTableViewController: UITableViewController {
         
     }
     
-    
-    ///fetchSpecies() fetches the type of species the character belongs to
     func fetchSpecies(completion: @escaping () -> Void) {
         guard let url = URL(string: character!.species[0]) else {
             completion()
@@ -92,21 +88,16 @@ class CharacterDetailsTableViewController: UITableViewController {
         
     }
     
-    
-    
-    // MARK: - Table view data source
+    // MARK: - TableView Delegate & Data Source Methods
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return CharacterField.count.rawValue
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
 
@@ -121,21 +112,15 @@ class CharacterDetailsTableViewController: UITableViewController {
         case .gender:
             cell.textLabel?.text = "Gender: \(self.character?.gender ?? "Gender Unknown")"
             
-//        case .homeworld:
-            //            cell.textLabel?.text = "Homeworld: \(self.character?.homeworldInformation?.name ?? "Homeworld: Unknown")"
+//      case .homeworld:
+//          cell.textLabel?.text = "Homeworld: \(self.character?.homeworldInformation?.name ?? "Homeworld: Unknown")"
             
-//         case .homeworld:
-//            cell.textLabel?.text = self.character?.homeworldInformation?.name ?? "…"
-
         case .homeworld:
             if let homeworld = self.character?.homeworldInformation?.name {
                 cell.textLabel?.text = "Homeworld: \(homeworld)"
             } else {
                 cell.textLabel?.text = "Homeworld: Unknown"
             }
-            
-//        case .species:
-//            cell.textLabel?.text = self.character?.speciesInformation?.name ?? "…"
             
         case .species:
             if let species = self.character?.speciesInformation?.name {
@@ -147,38 +132,6 @@ class CharacterDetailsTableViewController: UITableViewController {
         default: break
         }
 
-        // Configure the cell...
-
         return cell
     }
-    
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
-//
-//        let field = CharacterField(rawValue: indexPath.row) ?? .name
-//        switch field {
-//        case .name:
-//            cell.textLabel?.text = self.character?.name
-//
-//        case .birthyear:
-//            cell.textLabel?.text = self.character?.birth_year
-//
-//        case .gender:
-//            cell.textLabel?.text = self.character?.gender
-//
-//        case .homeworld:
-//            cell.textLabel?.text = self.character?.homeworldInformation?.name ?? "…"
-//
-//        case .species:
-//            cell.textLabel?.text = self.character?.speciesInformation?.name ?? "…"
-//
-//        default: break
-//        }
-//
-//        // Configure the cell...
-//
-//        return cell
-//    }
-    
 }

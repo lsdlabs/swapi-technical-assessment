@@ -10,16 +10,13 @@ import UIKit
 
 class CharacterListViewController: UITableViewController {
     
-    
     let filmURL = "https://swapi.co/api/films/2/"
     var characterArray = [CharacterData]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Star Wars Ep. V Characters"
         self.tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
-        // Do any additional setup after loading the view.
         fetchCharacters {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -27,13 +24,10 @@ class CharacterListViewController: UITableViewController {
         }
     }
     
-    
-    
-    ///fetchCharacter() fetches all characters in Episode 5
-    func fetchCharacters(completion: @escaping () -> Void ) {//closure executed after body of function
-        
-        //1. data task fetches URL...trailing closure
-        //accepts two arguments (URL and completion block)
+    // Escaping closure executed after body of function
+    // Data task fetches URL...trailing closure
+    // Accepts two arguments (URL and completion block)
+    func fetchCharacters(completion: @escaping () -> Void ) {
         let task = URLSession.shared.dataTask(with: URL(string: self.filmURL)!) { (data, response, error) in
             if let actualData = data {//2.Codable is a throwing function
                 do {
@@ -48,8 +42,6 @@ class CharacterListViewController: UITableViewController {
                                     let characterInfo = try JSONDecoder().decode(CharacterData.self, from: characterData)
                                     print(characterInfo.name)
                                     parseQueue.async {
-                                        
-                                        
                                         self.characterArray.append(characterInfo)
                                         queue.resume()
                                     }
@@ -71,6 +63,7 @@ class CharacterListViewController: UITableViewController {
         task.resume()
     }
     
+    // MARK: TableView Delegate & Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characterArray.count
