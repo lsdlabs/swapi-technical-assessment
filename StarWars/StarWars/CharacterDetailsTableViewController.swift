@@ -10,7 +10,7 @@ import UIKit
 
 class CharacterDetailsTableViewController: UITableViewController {
     var character: CharacterData?
- //   var filmArray = [FilmData]()
+ //   var starshipArray = [StarshipData]()
     
     enum CharacterField: Int { case name, birthyear, gender, homeworld, species, count }
     
@@ -47,7 +47,7 @@ class CharacterDetailsTableViewController: UITableViewController {
     }
 
     
-    
+    ///fetchHomeworld() fetches the name of the character's homeworld
     func fetchHomeworld(completion: @escaping () -> Void) {
         guard let url = URL(string: character!.homeworld) else {
             completion()
@@ -69,6 +69,8 @@ class CharacterDetailsTableViewController: UITableViewController {
         
     }
     
+    
+    ///fetchSpecies() fetches the type of species the character belongs to
     func fetchSpecies(completion: @escaping () -> Void) {
         guard let url = URL(string: character!.species[0]) else {
             completion()
@@ -120,7 +122,7 @@ class CharacterDetailsTableViewController: UITableViewController {
             cell.textLabel?.text = "Gender: \(self.character?.gender ?? "Gender Unknown")"
             
 //        case .homeworld:
-//            cell.textLabel?.text = "Homeworld: \(self.character?.homeworldInformation?.name ?? "Homeworld Unknown")"
+            //            cell.textLabel?.text = "Homeworld: \(self.character?.homeworldInformation?.name ?? "Homeworld: Unknown")"
             
 //         case .homeworld:
 //            cell.textLabel?.text = self.character?.homeworldInformation?.name ?? "…"

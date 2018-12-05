@@ -27,10 +27,15 @@ class CharacterListViewController: UITableViewController {
         }
     }
     
-    func fetchCharacters(completion: @escaping () -> Void ) {
+    
+    
+    ///fetchCharacter() fetches all characters in Episode 5
+    func fetchCharacters(completion: @escaping () -> Void ) {//closure executed after body of function
         
+        //1. data task fetches URL...trailing closure
+        //accepts two arguments (URL and completion block)
         let task = URLSession.shared.dataTask(with: URL(string: self.filmURL)!) { (data, response, error) in
-            if let actualData = data {
+            if let actualData = data {//2.Codable is a throwing function
                 do {
                     let filmInfo = try JSONDecoder().decode(FilmInfo.self, from: actualData)
                     let queue = DispatchQueue(label: "characterQueue")
